@@ -88,6 +88,11 @@ This checks connectivity, installs `espeak-ng` (system package) and torch,
 installs `requirements.txt`, and pre-downloads the Allosaurus model from
 GitHub. Nothing here touches huggingface.co by default.
 
+**On Windows?** See `WINDOWS.md` — same architecture and defaults, just
+different install commands (espeak-ng needs its own .msi/Scoop install,
+phonemizer needs two env vars that `core/platform_utils.py` now sets
+automatically, and venv activation syntax differs).
+
 You'll also need Ollama running separately, same as your other projects:
 ```bash
 ollama serve

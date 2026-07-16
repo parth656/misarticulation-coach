@@ -13,6 +13,10 @@ pronunciation was correct.
 from phonemizer import phonemize
 from phonemizer.separator import Separator
 
+from core.platform_utils import ensure_espeak_configured
+
+ensure_espeak_configured()
+
 
 def text_to_phonemes(text: str, language: str = "en-us") -> list[str]:
     result = phonemize(

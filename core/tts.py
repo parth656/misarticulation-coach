@@ -22,6 +22,8 @@ import subprocess
 import wave
 from pathlib import Path
 
+from core.platform_utils import espeak_ng_binary
+
 TTS_BACKEND = os.getenv("TTS_BACKEND", "espeak")
 ESPEAK_VOICE = os.getenv("ESPEAK_VOICE", "en-us")
 
@@ -33,7 +35,7 @@ _piper_voice_cache = {}
 
 def _synthesize_espeak(text: str, out_path: str) -> str:
     subprocess.run(
-        ["espeak-ng", "-v", ESPEAK_VOICE, "-w", out_path, text],
+        [espeak_ng_binary(), "-v", ESPEAK_VOICE, "-w", out_path, text],
         check=True,
         capture_output=True,
     )
