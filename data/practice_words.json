@@ -1,0 +1,8 @@
+{
+  "R sounds": ["rabbit", "red", "carrot", "river", "squirrel", "story"],
+  "S sounds": ["sun", "sock", "snake", "glasses", "bus", "spoon"],
+  "L sounds": ["lion", "yellow", "table", "balloon", "little", "flower"],
+  "TH sounds": ["thumb", "think", "bath", "feather", "mother", "three"],
+  "SH / CH sounds": ["shoe", "fish", "chair", "watch", "cheese", "wish"],
+  "Custom": ["your word here"]
+}

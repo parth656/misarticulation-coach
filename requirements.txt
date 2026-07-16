@@ -1,0 +1,24 @@
+streamlit>=1.38
+phonemizer>=3.2
+allosaurus>=1.0.2
+librosa>=0.10
+soundfile>=0.12
+requests>=2.31
+
+# Everything above only needs github.com, pypi.org, and OS package repos —
+# no huggingface.co. That's deliberate; see README's network-filtering
+# section (Allosaurus's model download is on GitHub releases, TTS_BACKEND
+# defaults to the espeak-ng binary you already installed for G2P).
+
+# Optional upgrades below — BOTH require huggingface.co to be reachable.
+# Run check_connectivity.py first if you're not sure.
+
+# TTS_BACKEND=piper: nicer neural voice for "hear correct pronunciation"
+# piper-tts>=1.2
+
+# PHONEME_BACKEND=wav2vec2: heavier, more accurate phoneme recognition.
+# This specific checkpoint also has known version-sensitive loader quirks;
+# phoneme_recognizer.py works around the common one, but see README
+# troubleshooting if loading still fails for your installed version.
+# transformers>=4.40
+# torch --index-url https://download.pytorch.org/whl/cpu
