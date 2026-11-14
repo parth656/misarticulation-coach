@@ -70,9 +70,16 @@ def align_phonemes(expected: List[str], actual: List[str]) -> List[PhonemeOp]:
 
 
 def accuracy(ops: List[PhonemeOp]) -> float:
-    expected_count = sum(1 for o in ops if o.expected is not None)
-    matches = sum(1 for o in ops if o.op == "match")
-    return matches / expected_count if expected_count else 0.0
+    """Return the proportion of aligned operations that are correct.
+
+    Insertions, substitutions, and omissions all count as errors. Including
+    insertions in the denominator prevents extra produced phones from leaving
+    the score artificially unchanged.
+    """
+    if not ops:
+        return 0.0
+    matches = sum(1 for operation in ops if operation.op == "match")
+    return matches / len(ops)
 
 
 def errors_only(ops: List[PhonemeOp]) -> List[PhonemeOp]:
